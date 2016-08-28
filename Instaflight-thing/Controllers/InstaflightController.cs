@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Instaflight.Service;
+using Instaflight.Service.Models.Response;
 
 namespace Instaflight_thing.Controllers
 {
@@ -19,9 +20,9 @@ namespace Instaflight_thing.Controllers
         }
 
         [HttpGet, Route("api/instaflight")]
-        public async Task<InstaflightSearchResponse> SearchAsync()
+        public async Task<InstaflightSearchResponse> SearchAsync(string origin, string destination, string departureDate, string returnDate)
         {
-            return await _instaflightApi.SearchAsync();
+            return await _instaflightApi.SearchAsync(origin, destination, departureDate, returnDate);
         }
     }
 }
