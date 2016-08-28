@@ -13,6 +13,6 @@ namespace Instaflight.Service
     {
         [Headers("Authorization: Bearer")]
         [Get("/v1/shop/flights")]
-        Task<InstaflightSearchResponse> SearchAsync(string origin, string destination, string departureDate, string returnDate);
+        Task<InstaflightSearchResponse> SearchAsync(string origin, string destination, string departuredate, string returndate);
     }
 }

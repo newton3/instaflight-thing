@@ -39,7 +39,11 @@ namespace Instaflight.Service
         {
             if (!string.IsNullOrEmpty(_token) && _expiresAt <= DateTime.UtcNow) return _token;
 
-            var token = await _client.GetTokenAsync("grant_type=client_credentials");
+            //"grant_type=client_credentials"
+            var token = await _client.GetTokenAsync(new Dictionary<string, object>()
+            {
+                { "grant_type", "client_credentials"}
+            });
             Logger.Debug($"Got Bearer Token: {token.AccessToken}, expires in {token.ExpiresIn}");
             //if (token.IsError)
             //    throw new HttpRequestException($"Cannot get token: {token.Error}");

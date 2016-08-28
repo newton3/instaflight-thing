@@ -11,6 +11,6 @@ namespace Instaflight.Service
     {
         [Headers("Authorization: Basic")]
         [Post("/v2/auth/token")]
-        Task<Token> GetTokenAsync(string grantType);
+        Task<Token> GetTokenAsync([Body(BodySerializationMethod.UrlEncoded)]Dictionary<string, object> data);
     }
 }

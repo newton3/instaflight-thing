@@ -42,15 +42,19 @@ namespace Instaflight.Service
         {
             const string clientId = "V1:tchxizyztahatc5v:DEVCENTER:EXT";
             const string secret = "PvF5N4wo";
-            const string token = clientId + ":" + secret;
 
-            var bytes = Encoding.UTF8.GetBytes(token);
-            var token64 = Convert.ToBase64String(bytes);
+            var client64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(clientId));
+            var secret64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(secret));
+
+            var token64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(client64 + ":" + secret64));
 
             var authApi = ServiceWithToken<IInstaflightAuthApi>(baseUrl, token64);
 
             return RestService.For<T>(
-                new HttpClient(new OauthAuthenticationHandler(authApi)),
+                new HttpClient(new OauthAuthenticationHandler(authApi))
+                {
+                    BaseAddress = new Uri(baseUrl)
+                },
                 new RefitSettings
                 {
                     JsonSerializerSettings = new JsonSerializerSettings

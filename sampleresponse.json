@@ -1,0 +1,256 @@
+{
+  "PricedItineraries": [
+    {
+      "AirItinerary": {
+        "OriginDestinationOptions": {
+          "OriginDestinationOption": [
+            {
+              "FlightSegment": [
+                {
+                  "DepartureAirport": {
+                    "LocationCode": "JFK"
+                  },
+                  "ArrivalAirport": {
+                    "LocationCode": "LAX"
+                  },
+                  "MarketingAirline": {
+                    "Code": "AA"
+                  },
+                  "ArrivalTimeZone": {
+                    "GMTOffset": -7
+                  },
+                  "TPA_Extensions": {
+                    "eTicket": {
+                      "Ind": true
+                    }
+                  },
+                  "StopQuantity": 0,
+                  "ElapsedTime": 362,
+                  "ResBookDesigCode": "O",
+                  "MarriageGrp": "O",
+                  "Equipment": {
+                    "AirEquipType": "32B"
+                  },
+                  "DepartureDateTime": "2016-10-07T05:55:00",
+                  "ArrivalDateTime": "2016-10-07T08:57:00",
+                  "FlightNumber": 171,
+                  "OnTimePerformance": {
+                    "Level": 8
+                  },
+                  "OperatingAirline": {
+                    "FlightNumber": 171,
+                    "Code": "AA"
+                  },
+                  "DepartureTimeZone": {
+                    "GMTOffset": -4
+                  }
+                }
+              ],
+              "ElapsedTime": 362
+            },
+            {
+              "FlightSegment": [
+                {
+                  "DepartureAirport": {
+                    "LocationCode": "LAX"
+                  },
+                  "ArrivalAirport": {
+                    "LocationCode": "JFK"
+                  },
+                  "MarketingAirline": {
+                    "Code": "AA"
+                  },
+                  "ArrivalTimeZone": {
+                    "GMTOffset": -4
+                  },
+                  "TPA_Extensions": {
+                    "eTicket": {
+                      "Ind": true
+                    }
+                  },
+                  "StopQuantity": 0,
+                  "ElapsedTime": 335,
+                  "ResBookDesigCode": "O",
+                  "MarriageGrp": "O",
+                  "Equipment": {
+                    "AirEquipType": "32B"
+                  },
+                  "DepartureDateTime": "2016-10-08T09:00:00",
+                  "ArrivalDateTime": "2016-10-08T17:35:00",
+                  "FlightNumber": 2,
+                  "OnTimePerformance": {
+                    "Level": 4
+                  },
+                  "OperatingAirline": {
+                    "FlightNumber": 2,
+                    "Code": "AA"
+                  },
+                  "DepartureTimeZone": {
+                    "GMTOffset": -7
+                  }
+                }
+              ],
+              "ElapsedTime": 335
+            }
+          ]
+        },
+        "DirectionInd": "Return"
+      },
+      "TPA_Extensions": {
+        "ValidatingCarrier": {
+          "Code": "AA"
+        }
+      },
+      "SequenceNumber": 1,
+      "AirItineraryPricingInfo": {
+        "PTC_FareBreakdowns": {
+          "PTC_FareBreakdown": {
+            "FareBasisCodes": {
+              "FareBasisCode": [
+                {
+                  "BookingCode": "O",
+                  "DepartureAirportCode": "JFK",
+                  "AvailabilityBreak": true,
+                  "ArrivalAirportCode": "LAX",
+                  "content": "OVAJZSN3"
+                },
+                {
+                  "BookingCode": "O",
+                  "DepartureAirportCode": "LAX",
+                  "AvailabilityBreak": true,
+                  "ArrivalAirportCode": "JFK",
+                  "content": "OVAJZSN3"
+                }
+              ]
+            },
+            "PassengerTypeQuantity": {
+              "Quantity": 1,
+              "Code": "ADT"
+            },
+            "PassengerFare": {
+              "FareConstruction": {
+                "CurrencyCode": "USD",
+                "DecimalPlaces": 2,
+                "Amount": "230.70"
+              },
+              "TotalFare": {
+                "CurrencyCode": "USD",
+                "Amount": "276.20"
+              },
+              "Taxes": {
+                "TotalTax": {
+                  "CurrencyCode": "USD",
+                  "DecimalPlaces": 2,
+                  "Amount": "45.50"
+                },
+                "Tax": [
+                  {
+                    "CurrencyCode": "USD",
+                    "DecimalPlaces": 2,
+                    "TaxCode": "US1",
+                    "Amount": "17.30"
+                  },
+                  {
+                    "CurrencyCode": "USD",
+                    "DecimalPlaces": 2,
+                    "TaxCode": "ZP",
+                    "Amount": "8.00"
+                  },
+                  {
+                    "CurrencyCode": "USD",
+                    "DecimalPlaces": 2,
+                    "TaxCode": "AY",
+                    "Amount": "11.20"
+                  },
+                  {
+                    "CurrencyCode": "USD",
+                    "DecimalPlaces": 2,
+                    "TaxCode": "XF",
+                    "Amount": "9.00"
+                  }
+                ]
+              },
+              "BaseFare": {
+                "CurrencyCode": "USD",
+                "Amount": "230.70"
+              },
+              "EquivFare": {
+                "CurrencyCode": "USD",
+                "DecimalPlaces": 2,
+                "Amount": "230.70"
+              }
+            }
+          }
+        },
+        "FareInfos": {
+          "FareInfo": [
+            {
+              "TPA_Extensions": {
+                "Cabin": {
+                  "Cabin": "Y"
+                },
+                "SeatsRemaining": {
+                  "BelowMin": false,
+                  "Number": 4
+                }
+              },
+              "FareReference": "O"
+            },
+            {
+              "TPA_Extensions": {
+                "Cabin": {
+                  "Cabin": "Y"
+                },
+                "SeatsRemaining": {
+                  "BelowMin": false,
+                  "Number": 4
+                }
+              },
+              "FareReference": "O"
+            }
+          ]
+        },
+        "TPA_Extensions": {
+          "DivideInParty": {
+            "Indicator": false
+          }
+        },
+        "ItinTotalFare": {
+          "FareConstruction": {
+            "CurrencyCode": "USD",
+            "DecimalPlaces": 2,
+            "Amount": "230.70"
+          },
+          "TotalFare": {
+            "CurrencyCode": "USD",
+            "DecimalPlaces": 2,
+            "Amount": "276.20"
+          },
+          "Taxes": {
+            "Tax": [
+              {
+                "CurrencyCode": "USD",
+                "DecimalPlaces": 2,
+                "TaxCode": "TOTALTAX",
+                "Amount": "45.50"
+              }
+            ]
+          },
+          "BaseFare": {
+            "CurrencyCode": "USD",
+            "DecimalPlaces": 2,
+            "Amount": "230.70"
+          },
+          "EquivFare": {
+            "CurrencyCode": "USD",
+            "DecimalPlaces": 2,
+            "Amount": "230.70"
+          }
+        }
+      },
+      "TicketingInfo": {
+        "TicketType": "eTicket"
+      }
+    }
+  ]
+}

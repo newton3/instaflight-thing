@@ -22,7 +22,9 @@ namespace Instaflight_thing.Controllers
         [HttpGet, Route("api/instaflight")]
         public async Task<InstaflightSearchResponse> SearchAsync(string origin, string destination, string departureDate, string returnDate)
         {
-            return await _instaflightApi.SearchAsync(origin, destination, departureDate, returnDate);
+            var result = await _instaflightApi.SearchAsync(origin, destination, departureDate, returnDate);
+
+            return result;
         }
     }
 }

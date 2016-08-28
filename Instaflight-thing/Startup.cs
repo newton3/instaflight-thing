@@ -32,7 +32,7 @@ namespace Instaflight_thing
 
             builder
             .Register(o =>
-                ServiceFactory.ServiceWithOauth<IInstaflightApi>("https://api.sabre.com"))
+                ServiceFactory.ServiceWithOauth<IInstaflightApi>("https://api.test.sabre.com"))
                     .As<IInstaflightApi>()
                     .InstancePerRequest();
 
