@@ -8,11 +8,13 @@ using System.Web.Http.ExceptionHandling;
 using Autofac;
 using Autofac.Integration.WebApi;
 using Instaflight.Service;
+using Microsoft.Owin;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using NLog;
 using Owin;
 
+[assembly: OwinStartup(typeof(Instaflight_thing.Startup))]
 namespace Instaflight_thing
 {
     public class Startup
@@ -29,10 +31,10 @@ namespace Instaflight_thing
             //Build dependencies here
 
             builder
-        .Register(o =>
-          ServiceFactory.ServiceWithOauth<IInstaflightAuthApi>("https://api.sabre.com"))
-            .As<IInstaflightApi>()
-            .InstancePerRequest();
+            .Register(o =>
+                ServiceFactory.ServiceWithOauth<IInstaflightApi>("https://api.sabre.com"))
+                    .As<IInstaflightApi>()
+                    .InstancePerRequest();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterWebApiFilterProvider(config);

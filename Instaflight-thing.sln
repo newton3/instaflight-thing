@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instaflight-thing", "Instaf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instaflight.Service", "Instaflight\Instaflight.Service\Instaflight.Service.csproj", "{A6D1B5FA-FF0E-47B7-9799-B7301E25CB53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instaflight.Host", "Host\Instaflight.Host\Instaflight.Host.csproj", "{27C71EAD-F824-459F-9734-27059DC0F480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A6D1B5FA-FF0E-47B7-9799-B7301E25CB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D1B5FA-FF0E-47B7-9799-B7301E25CB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D1B5FA-FF0E-47B7-9799-B7301E25CB53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C71EAD-F824-459F-9734-27059DC0F480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C71EAD-F824-459F-9734-27059DC0F480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C71EAD-F824-459F-9734-27059DC0F480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C71EAD-F824-459F-9734-27059DC0F480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
