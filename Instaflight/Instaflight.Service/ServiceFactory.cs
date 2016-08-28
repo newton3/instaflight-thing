@@ -38,11 +38,8 @@ namespace Instaflight.Service
             });
         }
 
-        public static T ServiceWithOauth<T>(string baseUrl)
+        public static T ServiceWithOauth<T>(string baseUrl, string clientId, string secret)
         {
-            const string clientId = "V1:tchxizyztahatc5v:DEVCENTER:EXT";
-            const string secret = "PvF5N4wo";
-
             var client64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(clientId));
             var secret64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(secret));
 

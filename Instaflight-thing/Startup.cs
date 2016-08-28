@@ -30,9 +30,14 @@ namespace Instaflight_thing
 
             //Build dependencies here
 
+            //read these from config
+            const string clientId = "V1:tchxizyztahatc5v:DEVCENTER:EXT";
+            const string secret = "PvF5N4wo";
+            const string sabreApiUrl = "https://api.test.sabre.com";
+
             builder
             .Register(o =>
-                ServiceFactory.ServiceWithOauth<IInstaflightApi>("https://api.test.sabre.com"))
+                ServiceFactory.ServiceWithOauth<IInstaflightApi>(sabreApiUrl, clientId, secret))
                     .As<IInstaflightApi>()
                     .InstancePerRequest();
 
