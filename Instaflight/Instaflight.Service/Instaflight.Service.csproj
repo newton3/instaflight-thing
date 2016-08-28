@@ -65,9 +65,11 @@
     <Compile Include="IInstaflightAuthApi.cs" />
     <Compile Include="Models\Response\AirItinerary.cs" />
     <Compile Include="Models\Response\Airport.cs" />
+    <Compile Include="Models\Response\ArrivalTimeZone.cs" />
     <Compile Include="Models\Response\Flight.cs" />
     <Compile Include="Models\Response\FlightList.cs" />
     <Compile Include="Models\Response\InstaflightSearchResponse.cs" />
+    <Compile Include="Models\Response\MarketingAirline.cs" />
     <Compile Include="Models\Response\OriginDestinationOptions.cs" />
     <Compile Include="Models\Response\PricedItinerary.cs" />
     <Compile Include="OAuthAuthenticationHandler.cs" />
