@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -15,7 +16,8 @@ namespace Instaflight.Service
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IInstaflightAuthApi _client;
         private DateTime _expiresAt;
-        private string _token;
+        private static volatile string _token;
+        private static object _syncRoot = new Object();
 
         public OauthAuthenticationHandler(IInstaflightAuthApi client)
         {
@@ -27,7 +29,7 @@ namespace Instaflight.Service
             var auth = request.Headers.Authorization;
             if (auth.Scheme == "Bearer")
             {
-                _token = await GetToken(cancellationToken);
+                await GetToken(cancellationToken);
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token);
                 Logger.Debug($"Injecting oauth token ({_token}, expire: {_expiresAt}) into request {request.RequestUri}");
 
@@ -35,22 +37,28 @@ namespace Instaflight.Service
             return await base.SendAsync(request, cancellationToken);
         }
 
-        private async Task<string> GetToken(CancellationToken cancellationToken)
+        private async Task GetToken(CancellationToken cancellationToken)
         {
-            if (!string.IsNullOrEmpty(_token) && _expiresAt <= DateTime.UtcNow) return _token;
-
-            //"grant_type=client_credentials"
-            var token = await _client.GetTokenAsync(new Dictionary<string, object>()
+            if (string.IsNullOrEmpty(_token) || _expiresAt <= DateTime.UtcNow)
             {
-                { "grant_type", "client_credentials"}
-            });
-            Logger.Debug($"Got Bearer Token: {token.AccessToken}, expires in {token.ExpiresIn}");
-            //if (token.IsError)
-            //    throw new HttpRequestException($"Cannot get token: {token.Error}");
-            _token = token.AccessToken;
-            _expiresAt = DateTime.UtcNow.AddSeconds(token.ExpiresIn);
+                var sw = new Stopwatch();
+                sw.Start();
+                var token = await _client.GetTokenAsync(new Dictionary<string, object>()
+                {
+                    { "grant_type", "client_credentials"}
+                });
+                sw.Stop();
+                Logger.Debug($"Got Bearer Token in {sw.ElapsedMilliseconds} ms: {token.AccessToken}, expires in {token.ExpiresIn}");
 
-            return _token;
+                lock (_syncRoot)
+                {
+                    if (string.IsNullOrEmpty(_token) || _expiresAt <= DateTime.UtcNow)
+                    {
+                        _token = token.AccessToken;
+                        _expiresAt = DateTime.UtcNow.AddSeconds(token.ExpiresIn);
+                    }
+                }
+            }
         }
     }
 }
